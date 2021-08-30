@@ -49,3 +49,49 @@ application.properties파일에 명시되어있는 앱정표를 표시함. appli
 
 ### /integrationgraph
 Spring Integration graph를 보여줌. spring-integration-core 의존성이 필요함.
+
+### /loggers
+어플리케이션 내 로거들의 configuredLevel과  effectiveLevel를 보여줌
+
+### /liquibase
+Liquibase database migrations이 적용된경우 보여줌. 하나 또는 그 이상의 Liquibase 빈이 필요함.
+
+### /metrics
+현재 어플리케이션의 'metrics' 정보를 보여줌
+
+### /mappings
+@RequestMapping으로 매핑된 모든 경로들을 보여줌
+
+### /quartz
+Quartz Scheduler job에 관한 정보를 보여줌
+
+### /scheduledtasks
+어플리케이션 내에 스캐쥴 된 작업들을 보여줌
+
+### /sessions
+스프링 세션 스토어 내로 부터 유저 세션들의 삭제와 검색을 허용함. 스프링 세션을 사용하는 서블릿 기반의 웹 어플리케이션이 필요함.
+
+### /shutdown
+우아한 종료를 시킴. 기본으로 비활성화 되어있음.
+
+### /startup
+ApplicationStartup으로 부터 수집된 [startup steps data](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.spring-application.startup-tracking)를 보여줌
+
+### /threaddump
+Thread 덤프를 수행함.
+
+## 아래의 Endpoint들은 Web 어플리케이션인 경우에만 사용할 수 있음(Spring MVC, Spring WebFlux, Jersey)
+
+### /heapdump
+hprof 힙 덤프 파일을 돌려줌, HotSpot JVM이 필요함.
+
+### /jolokia
+HTTP로 부터 JMX빈을 노출함(Jolokia가 classpath에 있으면 WebFlux로는 이용불가능함) jolokia-core 의존성이 필요함.
+
+### /logfile
+logfile의 내용을 되돌려줌(logging.file.name 또는 logging.file.path가 properies에 설정된 경우) 
+
+로그파일 내용의 일부를 가져오기 위해서 HTTP Range 헤더 사용을 지원함.
+
+### /promethus
+Prometheus 서버로 부터 스그랩할 수 있는 포매팅된 metrics를 노출함. micrometer-registry-prometheus 의존성이 필요함.
